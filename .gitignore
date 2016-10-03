@@ -18,3 +18,7 @@ nbbuild/
 dist/
 nbdist/
 .nb-gradle/
+           
+Assig5/build.xml
+Assig5/manifest.mf
+Assig5/nbproject/
