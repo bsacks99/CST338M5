@@ -1,3 +1,5 @@
+package assig5;
+
 /*
  *
  * GUI Cards - Bradley Sacks
@@ -13,7 +15,7 @@ import java.util.Arrays;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class Assig5 {
+public class main {
    // static for the 57 icons and their corresponding labels
     // normally we would not have a separate label for each card, but
     // if we want to display all at once using labels, we need to.
@@ -23,7 +25,7 @@ public class Assig5 {
     static final String IMGPATH = "assets/images/";
     
     static char[] values = {'2','3','4','5', '6','7','8','9','T','J','Q','K','A','X'};
-    static char[] suits = {'C','D','H','S'};;
+    static char[] suits = {'C','D','H','S'};
 
     static void loadCardIcons() throws MalformedURLException {
         
@@ -70,7 +72,7 @@ public class Assig5 {
             // prepare the image icon array
             loadCardIcons();
         } catch (MalformedURLException ex) {
-            Logger.getLogger(Assig5.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(main.class.getName()).log(Level.SEVERE, null, ex);
         }
 
         // establish main frame in which program will run
