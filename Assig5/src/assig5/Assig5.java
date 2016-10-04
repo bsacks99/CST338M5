@@ -20,33 +20,46 @@ public class Assig5 {
 
     static final int NUM_CARD_IMAGES = 57; // 52 + 4 jokers + 1 back-of-card image
     static Icon[] icon = new ImageIcon[NUM_CARD_IMAGES];
+    static final String IMGPATH = "assets/images/";
+    
+    static char[] values = {'2','3','4','5', '6','7','8','9','T','J','Q','K','A','X'};
+    static char[] suits = {'C','D','H','S'};;
 
     static void loadCardIcons() throws MalformedURLException {
+        
         int counter = 0;
-        File folder = new File("assets/images");
-        File[] files = folder.listFiles();
-        Arrays.sort(files);
-        for (File fileEntry : files) {
-            if (fileEntry.isDirectory()) {
-                //don't care
-            } else {
-                System.out.println(fileEntry.getName());
-                icon[counter] = new ImageIcon(fileEntry.toURI().toURL(),fileEntry.getName());
+        
+        for(int i=0; i < values.length; i++) {
+            for(int j=0; j < suits.length; j++) {
+                String desc = String.valueOf(values[i])  + String.valueOf(suits[j]);
+                File image = new File(IMGPATH + desc + ".gif");
+                
+                icon[counter] = new ImageIcon(image.toURI().toURL(),desc);
                 counter++;
             }
         }
+        
+        File image = new File(IMGPATH + "BK.gif");
+        icon[counter] = new ImageIcon(image.toURI().toURL(),"BK");
+
     }
 
     // turns 0 - 13 into "A", "2", "3", ... "Q", "K", "X"
     static String turnIntIntoCardValue(int k) {
-        return null;
-        // an idea for a helper method (do it differently if you wish)
+        try {
+            return String.valueOf(values[k]);
+        } catch(IndexOutOfBoundsException ex) {
+            return null;
+        }
     }
 
     // turns 0 - 3 into "C", "D", "H", "S"
     static String turnIntIntoCardSuit(int j) {
-        return null;
-        // an idea for another helper method (do it differently if you wish)
+        try {
+            return String.valueOf(suits[j]);
+        } catch(IndexOutOfBoundsException ex) {
+            return null;
+        }
     }
 
     // a simple main to throw all the JLabels out there for the world to see
